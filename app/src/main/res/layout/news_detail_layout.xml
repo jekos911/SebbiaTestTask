@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detail_title"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:padding="20dp"
+        tools:text="Я думал время вышло, время выдоено"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detail_date"
+        android:gravity="end"
+        android:padding="12dp"
+        tools:text="12 февраля 2013 года"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detail_description"
+        android:padding="8dp"
+        tools:text="ЗДЕСЬ БУДЕТ ДЛИННОЕ ОПИСАНИЕ НАШЕЙ НОВОСТИ С HTML ТЕГАМИ"/>
+
+</LinearLayout>
