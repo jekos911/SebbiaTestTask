@@ -18,7 +18,7 @@ public interface SebbiaInterface {
     Call<CategoriesList> getCategories();
 
     @GET("/v1/news/categories/{id}/news")
-    Call<NewsList> getNewsFromCategory(@Path("id") int categoryId);
+    Call<NewsList> getNewsFromCategory(@Path("id") int categoryId,@Query("page") int page);
 
     @GET("/v1/news/details")
     Call<NewsDetail> getNewsDetails(@Query("id") int newsId);

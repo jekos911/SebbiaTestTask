@@ -34,13 +34,14 @@ public class CategoriesViewHolder extends RecyclerView.ViewHolder implements Vie
     @Override
     public void onClick(View v) {
         SebbiaInterface inte = MyServiceGenerator.createService(SebbiaInterface.class);
-        inte.getNewsFromCategory(idCategory).enqueue(new Callback<NewsList>() {
+        inte.getNewsFromCategory(idCategory, 0).enqueue(new Callback<NewsList>() {
             @Override
             public void onResponse(Call<NewsList> call, Response<NewsList> response) {
                 NewsMenu.setNewsList(response.body().getListNews());
+                ListNewsFragment lnf = ListNewsFragment.newInstance(idCategory);
                 StartActivity.getFragmentManagerFromActivity()
                         .beginTransaction()
-                        .replace(R.id.container,new ListNewsFragment())
+                        .replace(R.id.container,lnf)
                         .addToBackStack(null)
                         .commit();
             }

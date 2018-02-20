@@ -40,6 +40,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     @Override
     public void onClick(View v) {
         //тут ничего не было
+        News news = NewsMenu.getNews(id);
+        if (news.getFullDescription()==null)
         NewsMenu.getInterfaceApi().getNewsDetails(id).enqueue(new Callback<NewsDetail>() {
             @Override
             public void onResponse(Call<NewsDetail> call, Response<NewsDetail> response) {
@@ -57,5 +59,14 @@ public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
             }
         });
+        else
+        {
+            NewsDetailFragment newsDetailFragment = NewsDetailFragment.newInstance(id);
+            StartActivity.getFragmentManagerFromActivity()
+                    .beginTransaction()
+                    .replace(R.id.container,newsDetailFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
 
 }}
