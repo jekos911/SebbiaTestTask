@@ -78,21 +78,4 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
 
-    public void addLoadingFooter() {
-        isLoadingAdded = true;
-        add(new News());
-    }
-
-    public void removeLoadingFooter() {
-        isLoadingAdded = false;
-
-        int position = news.size() - 1;
-        News item = news.get(position);
-
-        if (item != null) {
-            news.remove(position);
-            notifyItemRemoved(position);
-        }
-    }
-
 }

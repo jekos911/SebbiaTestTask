@@ -18,24 +18,32 @@
         android:layout_height="wrap_content">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        tools:text="Title"/>
+        tools:text="Title"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"/>
 
     <TextView
         android:layout_below="@id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/short_description"
-        tools:text="Short descrition"/>
+        tools:text="Short descrition"
+        android:textSize="16sp"
+        android:padding="4dp"
+        />
 
     <TextView
         android:layout_below="@id/short_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/date"
-        tools:text="Date"/>
+        tools:text="Date"
+        android:gravity="end"
+        android:paddingRight="8dp"
+        />
 
     </RelativeLayout>
 

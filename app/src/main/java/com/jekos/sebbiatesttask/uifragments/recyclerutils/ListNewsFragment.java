@@ -29,17 +29,13 @@ import retrofit2.Response;
 public class ListNewsFragment extends Fragment {
     RecyclerView recyclerView;
 
-    private static final String CURRENT_PAGE = "CURRENT_PAGE";
-    private static final String IS_LAST_PAGE = "IS_LAST_PAGE";
     private static final String CAT_ID = "CAT_ID";
     private int categoryId;
 
 
-    private static final int PAGE_START = 0;
     private int total_pages = Integer.MAX_VALUE;
     private int currentPage = 0;
 
-    private static final boolean wasFirstLoad = true;
     private NewsAdapter newsAdatper;
     private LinearLayoutManager linearLayoutManager;
 
@@ -52,6 +48,7 @@ public class ListNewsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         categoryId = getArguments().getInt(CAT_ID);
     }
+
 
     @Nullable
     @Override
@@ -104,13 +101,9 @@ public class ListNewsFragment extends Fragment {
                         if ((newsss != null) && (newsss.size() != 0)) {
                             newsAdatper.addAll(newsss);
                         } else {
-                            Toast.makeText(getActivity(), "Reached last page", Toast.LENGTH_SHORT).show();
                             isLastPage = true;
                         }
-                        //newsAdatper.removeLoadingFooter();
                         isLoading = false;
-                       // if ((newsss.size() != 0) &&(newsss.size() % 10 != 0)) //newsAdatper.addLoadingFooter();
-                        //else isLastPage = true;
                     }
                 }
 
@@ -123,7 +116,7 @@ public class ListNewsFragment extends Fragment {
     }
 
     private void error() {
-        Toast.makeText(getActivity(), "Internet connection error", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_internet), Toast.LENGTH_SHORT).show();
     }
 
 
